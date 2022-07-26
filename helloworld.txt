@@ -1,5 +1,5 @@
 public class Ready01 {
     public static void mains(String[] args) {
-        System.out.prinrln("Hello world!");
+        System.out.prinrln("Hello World!");
     }
 }
