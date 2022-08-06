@@ -1,5 +1,6 @@
 package extend;
 
+import extend.human.Employee;
 import extend.human.Human;
 import extend.human.Student;
 
@@ -16,7 +17,27 @@ public class Extend01 {
 		/// studentクラスに追加したgetStudentprofileメソッドを呼び出し
 		System.out.println("Studentクラスのメソッド：プロフィールは、" + sato.getStudentProfile());
 		
+		// Employeeクラスのインスタンスを生成して、アップキャストでHumanクラスの変数に代入
+		Human human = new Employee("田中",  28, "システム部");
+		// スーパークラス(Humanクラス)のメソッドを呼び出し
+		System.out.println("Humanクラスのメソッド：名前は、" + human.getName());
+		// Humanクラスには、getEmployeeProfileメソッドがないのでアクセスするとコンパイルエラー
+		// System.out.println("Employeeクラスのメソッド：" + human.getEmployeeProfile());
+		// Employeeクラスの変数にダウンキャスト
+		Employee tanaka = (Employee) human;
+		// Employeeクラスの変数なので、Employeeクラスに追加したgetEmployeeProfileメソッドの呼び出しができる
+		System.out.println("EMployeeクラスのメソッド：プロフィールは、" + tanaka.getEmployeeProfile());
 		
+		// printNameメソッドを呼び出して、名前を表示
+		Extend01.printName(sugimoto);
+		// Humanクラスのサブクラスの変数を引数にして呼び出し
+		Extend01.printName(sato);
+		Extend01.printName(tanaka);
+	}
+	
+	// 引数がHumanクラスなので、Humanクラスか、そのサブクラスなら呼び出しできる
+	public static void printName(Human human) {
+		System.out.println("Humanクラスのメソッド：名前は、" + human.getName());
 	}
 
 }
